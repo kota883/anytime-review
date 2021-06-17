@@ -8,9 +8,7 @@ class User < ApplicationRecord
   belongs_to :gender
   belongs_to :age
 
-  with_options presence: true do
-    validates :nickname, :
-  end
+  validates :nickname, presence: true
 
   with_options numericality: { other_than: 1 } do
     validates :gender_id, :age_id
