@@ -1,8 +1,10 @@
 <div class="card">
+	<%= link_to review_path(review) do %>
   <div class="card-header"><%= review.store_name %></div>
   <div class="card-body">
 	<h4 class="card-title">設備充実度</h4>
 	<p class="card-text"><%= review.facility.name %></p>
 	</div>
   <div class="card-footer"><%= link_to "by#{review.user.nickname}" %></div>
+	<% end %>
 </div>

@@ -1,0 +1,64 @@
+<%= render "shared/header" %>
+
+<main class="main">
+  <div class="inner">
+    <div class="prototype__wrapper">
+      <p class="prototype__hedding">
+        <%= @review.store_name %>
+      </p>
+      <%= link_to "by#{@review.user.nickname}", class: :prototype__user %>
+      <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
+      <% if user_signed_in? && current_user.id == @review.user_id %>
+        <div class="prototype__manage">
+          <%= link_to "編集する" %>
+          <%= link_to "削除する" %>
+        </div>
+      <% end %>
+      <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
+
+      <div class="prototype__body">
+        <table class="table">
+					<tbody>
+						<tr>
+							<th class="table__col1">設備の充実度</th>
+							<td class="table__col2"><%= @review.facility.name %></td>
+						</tr>
+						<tr>
+							<th class="table__col1">客層</th>
+							<td class="table__col2"><%= @review.customer_base.name %></td>
+						</tr>
+						<tr>
+							<th class="table__col1">アクセスのしやすさ</th>
+							<td class="table__col2"><%= @review.access.name %></td>
+						</tr>
+						<tr>
+							<th class="table__col1">都道府県</th>
+							<td class="table__col2"><%= @review.prefectures.name %></td>
+						</tr>
+							<th class="table__col1">駐輪場の有無</th>
+							<td class="table__col2"><%= @review.bicycle_parking.name %></td>
+						</tr>
+						<tr>
+							<th class="table__col1">駐車場の有無</th>
+							<td class="table__col2"><%= @review.parking_lot.name %></td>
+						</tr>
+						<tr>
+							<th class="table__col1">混む時間帯</th>
+							<td class="table__col2"><%= @review.crowded_time.name %></td>
+						</tr>
+						<tr>
+							<th class="table__col1">スタッフ</th>
+							<td class="table__col2"><%= @review.staff.name %></td>
+						</tr>
+						<tr>
+							<th class="table__col1">口コミ</th>
+							<td class="table__col2"><%= @review.text %></td>
+						</tr>
+					</tbody>
+      	</table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= render "shared/footer" %>
