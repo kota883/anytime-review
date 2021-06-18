@@ -3,13 +3,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  has_many :reviews
-
+      
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :gender
   belongs_to :age
+         
+  has_many :reviews
 
+  # ここからバリデーション
   validates :nickname, presence: true
 
   with_options numericality: { other_than: 1 } do
