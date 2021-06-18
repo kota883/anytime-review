@@ -8,6 +8,9 @@ class User < ApplicationRecord
   belongs_to :gender
   belongs_to :age
 
+  has_many :reviews
+
+  # ここからバリデーション
   validates :nickname, presence: true
 
   with_options numericality: { other_than: 1 } do
