@@ -20,8 +20,8 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | user               | references | null: false, foreign_key: true |
-| store_name         | text       | null: false                    |
-| facility           | text       | null: false                    |
+| store_name         | string     | null: false                    |
+| facility_id        | integer    | null: false                    |
 | customer_base_id   | integer    | null: false                    |
 | access_id          | integer    | null: false                    |
 | prefectures_id     | integer    | null: false                    |
