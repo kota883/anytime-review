@@ -19,7 +19,7 @@
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| user               | string     | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
 | store_name         | text       | null: false                    |
 | facility           | text       | null: false                    |
 | customer_base_id   | integer    | null: false                    |
