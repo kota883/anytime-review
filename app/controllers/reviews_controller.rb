@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @reviews = Review.order("created_at DESC")
+    @reviews = Review.order('created_at DESC')
   end
 
   def new
