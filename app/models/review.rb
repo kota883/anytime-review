@@ -15,4 +15,6 @@ class Review < ApplicationRecord
     validates :facility_id, :customer_base_id, :access_id, :prefectures_id, :bicycle_parking_id, :parking_lot_id
   end
 
+	validates :store_name, presence: true
+
 end
