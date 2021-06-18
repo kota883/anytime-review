@@ -9,7 +9,6 @@ class CustomerBase < ActiveHash::Base
     { id: 7, name: '年配の方' }
   ]
 
-	include ActiveHash::Associations
+  include ActiveHash::Associations
   has_many :reviews
-
 end

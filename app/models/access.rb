@@ -7,7 +7,6 @@ class Access < ActiveHash::Base
     { id: 5, name: '行きづらい' }
   ]
 
-	include ActiveHash::Associations
+  include ActiveHash::Associations
   has_many :reviews
-
 end

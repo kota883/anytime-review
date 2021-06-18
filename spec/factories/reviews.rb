@@ -12,6 +12,5 @@ FactoryBot.define do
     staff_id            { 2 }
 
     association :user
-
   end
 end

@@ -5,7 +5,6 @@ class BicycleParking < ActiveHash::Base
     { id: 3, name: '無し' }
   ]
 
-	include ActiveHash::Associations
+  include ActiveHash::Associations
   has_many :reviews
-
 end

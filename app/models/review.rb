@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-	extend ActiveHash::Associations::ActiveRecordExtensions
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :facility
   belongs_to :customer_base
   belongs_to :access
@@ -9,12 +9,11 @@ class Review < ApplicationRecord
   belongs_to :crowded_time
   belongs_to :staff
 
-	belongs_to :user
+  belongs_to :user
 
-	with_options numericality: { other_than: 1 } do
+  with_options numericality: { other_than: 1 } do
     validates :facility_id, :customer_base_id, :access_id, :prefectures_id, :bicycle_parking_id, :parking_lot_id
   end
 
-	validates :store_name, presence: true
-
+  validates :store_name, presence: true
 end

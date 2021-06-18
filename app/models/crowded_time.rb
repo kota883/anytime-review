@@ -27,7 +27,6 @@ class CrowdedTime < ActiveHash::Base
     { id: 25, name: '23時〜' }
   ]
 
-	include ActiveHash::Associations
+  include ActiveHash::Associations
   has_many :reviews
-
 end

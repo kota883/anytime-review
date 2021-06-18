@@ -7,7 +7,6 @@ class Facility < ActiveHash::Base
     { id: 5, name: '全く薦めたくない' }
   ]
 
-	include ActiveHash::Associations
+  include ActiveHash::Associations
   has_many :reviews
-
 end

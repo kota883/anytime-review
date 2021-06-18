@@ -9,5 +9,4 @@ class Staff < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :reviews
-
 end
