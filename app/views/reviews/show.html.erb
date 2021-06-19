@@ -7,14 +7,16 @@
         <%= @review.store_name %>
       </p>
       <%= link_to "by#{@review.user.nickname}", class: :prototype__user %>
-      <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
-      <% if user_signed_in? && current_user.id == @review.user_id %>
-        <div class="prototype__manage">
-          <%= link_to "編集する" %>
-          <%= link_to "削除する" %>
-        </div>
-      <% end %>
-      <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
+      <%# 口コミの投稿者とログインしているユーザーが同じであれば以下を表示する %>
+			<% if user_signed_in?  %>
+				<% if user_signed_in? && current_user.id == @review.user_id %>
+					<div class="prototype__manage">
+						<%= link_to "編集する", edit_review_path(@review), method: :get %>
+						<%= link_to "削除する" %>
+					</div>
+				<% end %>
+			<% end %>
+      <%# // 口コミの投稿者とログインしているユーザーが同じであれば上記を表示する %>
 
       <div class="prototype__body">
         <table class="table">
