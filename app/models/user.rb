@@ -9,6 +9,7 @@ class User < ApplicationRecord
   belongs_to :age
 
   has_many :reviews
+  has_many :comments
 
   # ここからバリデーション
   validates :nickname, presence: true
