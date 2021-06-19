@@ -1,16 +1,17 @@
 class CommentsController < ApplicationController
-	def create
-		@comment = Comment.new(comment_params)
+  def create
+    @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to review_path(@comment.review) 
+      redirect_to review_path(@comment.review)
     else
       @review = @comment.review
       @comments = @review.comments
-      render "reviews/show"
+      render 'reviews/show'
     end
-	end
+  end
 
-	private
+  private
+
   def comment_params
     params.require(:comment).permit(:text).merge(user_id: current_user.id, review_id: params[:review_id])
   end
