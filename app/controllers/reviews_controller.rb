@@ -1,8 +1,7 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  before_action :set_review, only: [:show, :edit, :update]
-  before_action :user_id_verification, only: [:edit, :update]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :user_id_verification, only: [:edit, :update, :destroy]
 
   def index
     @reviews = Review.order('created_at DESC')
@@ -33,6 +32,11 @@ class ReviewsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @review.destroy
+    redirect_to root_path
   end
 
   private
