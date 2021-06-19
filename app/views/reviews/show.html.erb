@@ -6,7 +6,7 @@
       <p class="prototype__hedding">
         <%= @review.store_name %>
       </p>
-      <%= link_to "by#{@review.user.nickname}", class: :prototype__user %>
+      <%= link_to "by#{@review.user.nickname}", "#",  class: :prototype__user %>
       <%# 口コミの投稿者とログインしているユーザーが同じであれば以下を表示する %>
 				<% if user_signed_in? && current_user.id == @review.user_id %>
 					<div class="prototype__manage">
@@ -14,7 +14,6 @@
 						<%= link_to "削除する", review_path(@review), method: :delete %>
 					</div>
 				<% end %>
-      <%# // 口コミの投稿者とログインしているユーザーが同じであれば上記を表示する %>
 
       <div class="prototype__body">
         <table class="table">
@@ -57,6 +56,34 @@
 					</tbody>
       	</table>
       </div>
+
+			<div class="prototype__comments">
+
+        <%# コメント投稿フォーム %>
+        <% if user_signed_in? %>
+          <%= form_with model: [@review, @comment],local: true do |f|%>
+            <div class="field">
+              <%= f.label :text, "コメント" %><br />
+              <%= f.text_field :text, id:"comment_text" %>
+            </div>
+            <div class="actions">
+              <%= f.submit "送信する", class: :form__btn  %>
+            </div>
+          <% end %> 
+        <% end %>
+
+        <%# コメント一覧 %>
+        <ul class="comments_lists">
+          <% @comments.each do |comment| %>
+            <li class="comments_list">
+              <%= comment.text %>
+              <%= link_to comment.user.nickname, "#", class: :comment_user %>
+            </li>
+          <% end %>
+        </ul>
+
+      </div>
+
     </div>
   </div>
 </main>
