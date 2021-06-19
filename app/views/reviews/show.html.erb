@@ -12,7 +12,7 @@
 				<% if user_signed_in? && current_user.id == @review.user_id %>
 					<div class="prototype__manage">
 						<%= link_to "編集する", edit_review_path(@review), method: :get %>
-						<%= link_to "削除する" %>
+						<%= link_to "削除する", review_path(@review), method: :delete %>
 					</div>
 				<% end %>
 			<% end %>
