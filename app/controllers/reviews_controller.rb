@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :set_review, only: [:show, :edit, :update]
   before_action :user_id_verification, only: [:edit, :update]
