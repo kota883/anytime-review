@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AnyReview</title>
+    <title>AnytimeReview</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,6 +12,59 @@
   </head>
 
   <body>
+    <!-- header -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="/">AnytimeReview</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item"><%= link_to current_user.nickname, "#", class: "user-nickname nav-link" %></li>
+            <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout nav-link" %></li>
+            <li class="nav-item"><%= link_to "投稿する", new_review_path, class: "nav-link" %></li>
+          <% else %>
+            <li class="nav-item"><%= link_to 'ログイン', new_user_session_path, class: "login nav-link" %></li>
+            <li class="nav-item"><%= link_to '新規登録', new_user_registration_path, class: "sign-up nav-link" %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
     <%= yield %>
+
+    <!-- footer -->
+  <div class='footer'>
+    <div class='footer-contents'>
+      <div class='furima-details'>
+        <h2 class='footer-content-head'>AnytimeReviewについて</h2>
+        <ul>
+          <li><%= link_to '会社概要（運営会社)', "#", class: "footer-link" %></li>
+          <li><%= link_to 'プライバシーポリシー', "#", class: "footer-link" %></li>
+          <li><%= link_to 'AnyReview利用規約', "#", class: "footer-link" %></li>
+          <li><%= link_to 'ポイントに関する特約', "#", class: "footer-link" %></li>
+        </ul>
+      </div>
+      <div class='furima-details'>
+        <h2 class='footer-content-head'>ANYTIME公式HPを見る</h2>
+        <ul>
+          <li><%= link_to '公式HP', "https://www.anytimefitness.co.jp/", class: "footer-link" %></li>
+        </ul>
+      </div>
+      <div class='furima-details'>
+        <h2 class='footer-content-head'>AnytimeReviewについて</h2>
+        <ul>
+          <li><%= link_to 'AnyReviewガイド', "#", class: "footer-link" %></li>
+          <li><%= link_to 'AnyReviewロゴ利用ガイドライン', "#", class: "footer-link" %></li>
+          <li><%= link_to 'お知らせ', "#", class: "footer-link" %></li>
+        </ul>
+      </div>
+    </div>
+    <p>© AnytimeReview</p>
+  </div>
   </body>
 </html>
