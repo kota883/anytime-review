@@ -1,21 +1,20 @@
-<%= render "shared/header" %>
-
 <main class="main">
   <div class="inner">
     <div class="prototype__wrapper">
+			<p class="prototype__hedding">店舗名</p>
       <p class="prototype__hedding">
         <%= @review.store_name %>
       </p>
-      <%= link_to "by#{@review.user.nickname}", "#",  class: :prototype__user %>
+      <%= link_to "by #{@review.user.nickname}", "#",  class: :prototype__user %>
       <%# 口コミの投稿者とログインしているユーザーが同じであれば以下を表示する %>
 				<% if user_signed_in? && current_user.id == @review.user_id %>
 					<div class="prototype__manage">
-						<%= link_to "編集する", edit_review_path(@review), method: :get %>
-						<%= link_to "削除する", review_path(@review), method: :delete %>
+						<%= link_to "編集する", edit_review_path(@review), method: :get, class: :prototype__btn %>
+						<%= link_to "削除する", review_path(@review), method: :delete, class: :prototype__btn %>
 					</div>
 				<% end %>
 
-      <div class="prototype__body">
+      <div class="prototype__body mt-3">
         <table class="table">
 					<tbody>
 						<tr>
@@ -87,5 +86,3 @@
     </div>
   </div>
 </main>
-
-<%= render "shared/footer" %>

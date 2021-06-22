@@ -1,10 +1,24 @@
-<div class="card">
-	<%= link_to review_path(review) do %>
-  <div class="card-header"><%= review.store_name %></div>
+<div class="shadow-lg card review-card">
+<%= link_to review_path(review) do %>
   <div class="card-body">
-	<h4 class="card-title">設備充実度</h4>
-	<p class="card-text"><%= review.facility.name %></p>
+		<div class="d-flex text-white">
+			<div class="store-name text-secondary">
+				<p>店舗名</p>
+				<h4><%= review.store_name %></h4>
+			</div>
+			<div class="user-date pl-2 pt-3 text-secondary">
+				<p><%= review.user.age.name %></p>
+				<p><%= review.user.gender.name %></p>
+			</div>
+			<div class="review-date pl-2 text-secondary">
+				<p>＜設備の充実度＞</p>
+				<p class="ml-3"><%= review.facility.name %></p>
+			</div>
+			<div class="review-text pl-2 text-secondary">
+				<p>＜口コミ＞</p>
+				<p><%= review.text %></p>
+			</div>
+		</div>  
 	</div>
-  <div class="card-footer"><%= link_to "by#{review.user.nickname}" %></div>
-	<% end %>
+<% end %>	
 </div>
