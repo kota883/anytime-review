@@ -1,36 +1,36 @@
 <%= form_with model: @review, local: true do |f|%>
   <div class="field">
-    <%= f.label :store_name, "店舗の名前 必須" %><br />
+    <%= f.label :store_name, "店舗の名前 ＜必須＞" %><br />
     <%= f.text_field :store_name, id:"prototype_title" %>
   </div>
 
   <div class="field">
-    <%= f.label :facility_id, "設備の充実度 必須" %><br />
+    <%= f.label :facility_id, "設備の充実度 ＜必須＞" %><br />
     <%= f.collection_select(:facility_id, Facility.all, :id, :name, {}, {class: :form__text, id:"prototype_catch_copy"}) %>
   </div>
 
   <div class="field">
-    <%= f.label :customer_base_id, "客層 必須" %><br />
+    <%= f.label :customer_base_id, "客層 ＜必須＞" %><br />
     <%= f.collection_select(:customer_base_id, CustomerBase.all, :id, :name, {}, {class: :form__text, id:"prototype_catch_copy"}) %>
   </div>
 
   <div class="field">
-    <%= f.label :access_id, "アクセスのしやすさ 必須" %><br />
+    <%= f.label :access_id, "アクセスのしやすさ ＜必須＞" %><br />
     <%= f.collection_select(:access_id, Access.all, :id, :name, {}, {class: :form__text, id:"prototype_catch_copy"}) %>
   </div>
 
   <div class="field">
-    <%= f.label :prefectures_id, "都道府県 必須" %><br />
+    <%= f.label :prefectures_id, "都道府県 ＜必須＞" %><br />
     <%= f.collection_select(:prefectures_id, Prefectures.all, :id, :name, {}, {class: :form__text, id:"prototype_catch_copy"}) %>
   </div>
 
   <div class="field">
-    <%= f.label :bicycle_parking_id, "駐輪場の有無 必須" %><br />
+    <%= f.label :bicycle_parking_id, "駐輪場の有無 ＜必須＞" %><br />
     <%= f.collection_select(:bicycle_parking_id, BicycleParking.all, :id, :name, {}, {class: :form__text, id:"prototype_catch_copy"}) %>
   </div>
 
   <div class="field">
-    <%= f.label :parking_lot_id, "駐車場の有無 必須" %><br />
+    <%= f.label :parking_lot_id, "駐車場の有無 ＜必須＞" %><br />
     <%= f.collection_select(:parking_lot_id, ParkingLot.all, :id, :name, {}, {class: :form__text, id:"prototype_catch_copy"}) %>
   </div>
 
@@ -44,6 +44,10 @@
     <%= f.collection_select(:staff_id, Staff.all, :id, :name, {}, {class: :form__text, id:"prototype_catch_copy"}) %>
   </div>
 
+  <div class="field">
+    <%= f.label :text, "口コミ 自由記入欄" %><br />
+    <%= f.text_area :text, class: :form__text, id:"prototype_catch_copy" %>
+  </div>
 
   <div class="actions">
     <%= f.submit "保存する", class: :form__btn  %>
