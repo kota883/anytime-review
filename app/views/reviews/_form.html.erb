@@ -40,7 +40,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :staff_id, "スタッフ" %><br />
+    <%= f.label :staff_id, "スタッフ対応" %><br />
     <%= f.collection_select(:staff_id, Staff.all, :id, :name, {}, {class: :form__text, id:"prototype_catch_copy"}) %>
   </div>
 
