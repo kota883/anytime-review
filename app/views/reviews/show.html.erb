@@ -5,7 +5,7 @@
       <p class="prototype__hedding">
         <%= @review.store_name %>
       </p>
-      <%= link_to "by #{@review.user.nickname}", "#",  class: :prototype__user %>
+      <%= link_to "by #{@review.user.nickname}", user_path(@review.user.id),  class: :prototype__user %>
       <%# 口コミの投稿者とログインしているユーザーが同じであれば以下を表示する %>
 				<% if user_signed_in? && current_user.id == @review.user_id %>
 					<div class="prototype__manage">
@@ -76,7 +76,7 @@
           <% @comments.each do |comment| %>
             <li class="comments_list">
               <%= comment.text %>
-              <%= link_to comment.user.nickname, "#", class: :comment_user %>
+              <%= link_to comment.user.nickname, user_path(comment.user.id), class: :comment_user %>
             </li>
           <% end %>
         </ul>
