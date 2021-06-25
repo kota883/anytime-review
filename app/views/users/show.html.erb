@@ -1,0 +1,16 @@
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+      <h2 class="page-heading">
+        <%= "#{@user.nickname}さんの情報"%>
+      </h2>
+
+      <h2 class="page-heading">
+        <%= "#{@user.nickname}さんの口コミ"%>
+      </h2>
+      <div class="user__card">
+        <%= render partial: "reviews/review", collection: @reviews %>
+      </div>
+    </div>
+  </div>
+</div>
