@@ -23,6 +23,8 @@ class ReviewsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @review.comments.includes(:user)
+    @review = review.find(params[:id])
+    @like = Like.new
   end
 
   def edit
