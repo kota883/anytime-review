@@ -13,6 +13,10 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :review
 
+  def already_liked?(review)
+    self.likes.exists?(review_id: review.id)
+  end
+
   # ここからバリデーション
   validates :nickname, presence: true
 
