@@ -14,14 +14,16 @@
 					</div>
 				<% end %>
 
-			<h5>参考になった件数: <%= @review.likes.count %></h5>
-			<% if user_signed_in? %>
-			<% if current_user.already_liked?(@review) %>
-				<%= button_to '参考になったを取り消す', review_like_path(@review), method: :delete %>
-			<% else %>
-				<%= button_to '参考になった', review_likes_path(@review) %>
-			<% end %>
-			<% end %>
+			<div class="prototype__hedding">
+				<h5>参考になった件数: <%= @review.likes.count %></h5>
+				<% if user_signed_in? %>
+				<% if current_user.already_liked?(@review) %>
+					<%= button_to '参考になったを取り消す', review_like_path(@review), method: :delete %>
+				<% else %>
+					<%= button_to '参考になった', review_likes_path(@review) %>
+				<% end %>
+				<% end %>
+			</div>
 
       <div class="prototype__body mt-3">
         <table class="table">
