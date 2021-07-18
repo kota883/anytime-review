@@ -5,6 +5,8 @@
 			<div class="store-name text-secondary">
 				<p>店舗名</p>
 				<h4><%= review.store_name %></h4>
+				<h6>参考になった数<h6>
+				<h5>→<%= review.liked_users.count %><h5>
 			</div>
 			<div class="user-date pl-2 pt-3 text-secondary">
 				<p><%= review.user.age.name %></p>

@@ -11,6 +11,8 @@ class Review < ApplicationRecord
 
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :likes
+  has_many :liked_users, through: :likes, source: :user
 
   with_options numericality: { other_than: 1 } do
     validates :facility_id, :customer_base_id, :access_id, :prefectures_id, :bicycle_parking_id, :parking_lot_id
